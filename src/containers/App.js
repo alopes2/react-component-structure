@@ -5,13 +5,34 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: '987asd6dyf', name: 'Max', age: 28 },
-      { id: '987asyhdj', name: 'Manu', age: 29 },
-      { id: 'jk23g45iu32', name: 'Stephanie', age: 26 }
-    ]
-  };
+  constructor(props) {
+    super(props);
+    console.log('[App.js Inside Constructor: ', props);
+    //doesn't make a difference where you initialize the state
+    this.state = {
+      persons: [
+        { id: '987asd6dyf', name: 'Max', age: 28 },
+        { id: '987asyhdj', name: 'Manu', age: 29 },
+        { id: 'jk23g45iu32', name: 'Stephanie', age: 26 }
+      ]
+    };
+  }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount');
+  }
+
+  componentDidMount() {    
+    console.log('[App.js] Inside componentDidMount');
+  }
+
+  // state = {
+  //   persons: [
+  //     { id: '987asd6dyf', name: 'Max', age: 28 },
+  //     { id: '987asyhdj', name: 'Manu', age: 29 },
+  //     { id: 'jk23g45iu32', name: 'Stephanie', age: 26 }
+  //   ]
+  // };
 
   deletePersonHandler = (index) => {
     // const persons = this.state.persons.slice();
@@ -46,27 +67,10 @@ class App extends Component {
   }
 
   render() {
-    // const style = {
-    //   backgroundColor: 'green',
-    //   color: 'white',
-    //   font: 'inherit',
-    //   border: '1px solid blue',
-    //   padding: '8px',
-    //   cursor: 'pointer',
-      // ':hover': {
-      //   backgroundColor: 'lightgreen',
-      //   color: 'black'
-      // }
-    // };
-
+    console.log('[App.js] Inside render');
     let persons = null;
 
     if (this.state.showPersons) {
-      // style.backgroundColor = 'red';
-      // style[':hover'] = {
-      //   backgroundColor: 'salmon',
-      //   color: 'black'
-      // }
       persons = <Persons 
                   persons={this.state.persons} 
                   clicked={this.deletePersonHandler}
