@@ -26,6 +26,19 @@ class App extends Component {
     console.log('[App.js] Inside componentDidMount');
   }
 
+  shouldComponentUpdate (nextProps, nextState) {
+      console.log('[UDPATE App.js] Inside shouldComponentUpdate', nextProps, nextState);
+      return true;
+  }
+
+  componentWillUpdate (nextProps, nextState) {
+      console.log('[UDPATE App.js] Inside componentWillUpdate', nextProps, nextState);
+  }
+
+  componentDidUpdate (e) {
+      console.log('[UDPATE App.js] Inside componentDidUpdate');
+  }
+
   // state = {
   //   persons: [
   //     { id: '987asd6dyf', name: 'Max', age: 28 },
