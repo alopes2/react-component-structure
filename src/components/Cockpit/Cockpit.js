@@ -17,7 +17,8 @@ const cockpit = ( props ) => {
       assignedClasses.push(classes.bold)
 
     return (
-        <Aux>
+        /* <Aux> */
+        <React.Fragment>
             <h1>{props.appTitle}</h1>
             <p className={assignedClasses.join(' ')}>This is really working!</p>
             <button 
@@ -25,7 +26,8 @@ const cockpit = ( props ) => {
                 className={btnClass}
                 onClick={props.clicked}
             >Toggle Persons</button>
-        </Aux>
+        </React.Fragment>
+        /* </Aux> */
     );
 };
 
