@@ -1,4 +1,6 @@
 import React, { Component} from 'react';
+import PropTypes from 'prop-types';
+
 import classes from './Person.css';
 // import Radium from 'radium';
 import anotherWithClass from '../../../hoc/anotherWithClass';
@@ -30,6 +32,13 @@ class Person extends Component {
             // </div>
         );
     }
+}
+
+Person.propTypes = {
+    click: PropTypes.func,
+    name: PropTypes.string,
+    age: PropTypes.number,
+    change: PropTypes.func
 }
 
 export default anotherWithClass(Person, classes.Person);
