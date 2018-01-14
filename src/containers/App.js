@@ -3,6 +3,7 @@ import classes from  './App.css';
 // import Radium, { StyleRoot } from 'radium';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import WithClass from '../hoc/WithClass';
 
 class App extends PureComponent {
   constructor(props) {
@@ -93,7 +94,8 @@ class App extends PureComponent {
 
     return (
       /* <StyleRoot> */
-        <div className={classes.App}>
+        /* <div className={classes.App}> */
+        <WithClass classes={classes.App}>
           <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
           <Cockpit 
             appTitle={this.props.title}
@@ -101,7 +103,8 @@ class App extends PureComponent {
             persons={this.state.persons}
             clicked={this.togglePersonsHandler}/>
           {persons}
-        </div>
+        </WithClass>
+        // </div>
       // </StyleRoot>
     );
 
